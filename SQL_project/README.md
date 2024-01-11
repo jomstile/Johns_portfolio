@@ -30,12 +30,23 @@ Suicide is a serious global issue. If you or someone you know is struggling, ple
 
 **Project Structure:**
 
-(Insert a brief description of your project's file structure and key files here)
+Clean_data: Is the host of the data after is have undergone EDA, and then finally the ETL process so it can then be used in tableau efficently.
+Raw_data: Is the host of the data as downloaded, no prior changes made
+Visualizations: This will host a series of jpegs that show how the visualizaations became created and unltimately told the story that data has to show
+SQL_process: This will show to the code used to query the correct data using a series of important skills such as join, aggregate functions, subqueries, Regrex, Clauses, and Advanced String Functions.
 
-**Getting Started:**
 
-(Provide instructions on how to set up and run the project)
+**References:**
+United Nations Development Program. (2018). Human development index (HDI). Retrieved from http://hdr.undp.org/en/indicators/137506
 
-**Contributing:**
+World Bank. (2018). World development indicators: GDP (current US$) by country:1985 to 2016. Retrieved from http://databank.worldbank.org/data/source/world-development-indicators#
 
-(Guidelines for contributing to the project)
+[Szamil]. (2017). Suicide in the Twenty-First Century [dataset]. Retrieved from https://www.kaggle.com/szamil/suicide-in-the-twenty-first-century/notebook
+
+World Health Organization. (2018). Suicide prevention. Retrieved from http://www.who.int/mental_health/suicide-prevention/en/
+
+Uppsala Conflict Data Program. (2022) UCDP/PRIO Armed Conflict Dataset version 23.1. Retrieved from https://ucdp.uu.se/downloads/ucdpprio/ucdp-prio-acd-231-csv.zip
+
+Davies, Shawn, Therese Pettersson & Magnus Öberg (2023). Organized violence 1989-2022 and the return of conflicts between states?. Journal of Peace Research 60(4).
+
+• Gleditsch, Nils Petter, Peter Wallensteen, Mikael Eriksson, Margareta Sollenberg, and Håvard Strand (2002) Armed Conflict 1946-2001: A New Dataset. Journal of Peace Research 39(5).
