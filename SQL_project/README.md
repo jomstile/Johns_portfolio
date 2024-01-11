@@ -34,9 +34,10 @@ Clean_data: Is the host of the data after is have undergone EDA, and then finall
 Raw_data: Is the host of the data as downloaded, no prior changes made
 Visualizations: This will host a series of jpegs that show how the visualizaations became created and unltimately told the story that data has to show
 SQL_process: This will show to the code used to query the correct data using a series of important skills such as join, aggregate functions, subqueries, Regrex, Clauses, and Advanced String Functions.
-
+---
 
 **References:**
+
 United Nations Development Program. (2018). Human development index (HDI). Retrieved from http://hdr.undp.org/en/indicators/137506
 
 World Bank. (2018). World development indicators: GDP (current US$) by country:1985 to 2016. Retrieved from http://databank.worldbank.org/data/source/world-development-indicators#
