@@ -1,6 +1,6 @@
 ## Diving into the Data :
 
-While both datasets offer a ton of information, not all of it aligns with our specific question. To ensure a focused analysis, I will be cleaning this data and transforming into something that can be used.
+While both datasets offer a ton of information, not all of it aligns with our specific question. To ensure a focused analysis, I will be cleaning this data and transforming it into something that can be used.
 
 ### 1. Seeking Shared Shores :
 
