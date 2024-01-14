@@ -49,5 +49,75 @@ WHERE TABLE_NAME = 'Suicide_rates_raw"
 |gdp_for_year|
 |gdp_per_capita|
 |generation|
+---
 
-Before we can start pulling data to get a better look, we must first start eliminating countries that are not useful for our analysis. Any country that does not have a document conflict with at least one side being a government needs to be exluded. We will do this by doing
+## Lets take a look at some of the more basic statisitcal breakdowns of our data
+1. A break down of the countires with the highest number of records.
+2. Average annual suicide rates by year.
+3. Average suicide rates by gender.
+4. Average Suicide rates by country and generation.
+5. Countries with suicide rates above average, by year.
+
+### Countries with the highest number of records
+```sql
+SELECT TOP 10 country, COUNT(*) AS total_records
+FROM dbo.Suicide_rates_raw
+GROUP BY country
+ORDER BY total_records DESC
+```
+|country|total_records|
+|---|---|
+|Netherlands|382|
+|Iceland|382|
+|Mauritius|382|
+|Austria|382|
+|Puerto Rico|372|
+|Republic of Korea|372|
+|Italy|372|
+|Brazil|372|
+|United States|372|
+|Ecuador|372|
+---
+### Average annual suicide rates by year
+```sql
+SELECT year, AVG(suicides_no) AS avg_suicides
+FROM dbo.Suicide_rates_raw
+GROUP BY year
+ORDER BY year ASC
+```
+|Year|Avg.Suicides|
+|---|---|
+|1985|201|
+|1986|209|
+|1987|195|
+|1988|205|
+|1989|256|
+|1990|251|
+|1991|257|
+|1992|271|
+|1993|284|
+|1994|284|
+|1995|260|
+|1996|267|
+|1997|260|
+|1998|263|
+|1999|257|
+|2000|247|
+|2001|237|
+|2002|248|
+|2003|248|
+|2004|238|
+|2005|232|
+|2006|228|
+|2007|226|
+|2008|230|
+|2009|227|
+|2010|226|
+|2011|229|
+|2012|236|
+|2013|232|
+|2014|238|
+|2015|273|
+|2016|97
+
+
