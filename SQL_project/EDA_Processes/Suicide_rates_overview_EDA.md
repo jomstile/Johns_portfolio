@@ -239,3 +239,5 @@ ORDER BY country;
 |United States                                                            |2042           |2792  |5215   |2883        |1444      |154         |
 |Uruguay                                                                  |33             |54    |57     |33          |24        |2           |
 |Uzbekistan                                                               |24             |60    |202    |200         |134       |40          |
+---
+### Countries with suicide rates above average, by year
