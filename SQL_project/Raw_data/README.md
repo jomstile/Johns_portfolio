@@ -2,9 +2,9 @@
 
 While both datasets offer a ton of information, not all of it aligns with our specific question. To ensure a focused analysis, I will be cleaning this data and transforming it into something that can be used.
 
-### 1. Seeking Shared Shores :
+### 1. Finding common data :
 
-Imagine our datasets as sprawling continents. We'll begin by pinpointing the countries that reside on both maps, establishing a common ground for meaningful comparisons.
+These datasets have a lot of points, but they needs to be refined to only include the countries and years they have in common (with the expception of the pre and post war time). We'll begin by pinpointing the countries that reside on both datasets and then establishing a common methology for comparing how war affect the rates of suicide.
 
 ### 2. Forging Foreign Key Bridges :
 
