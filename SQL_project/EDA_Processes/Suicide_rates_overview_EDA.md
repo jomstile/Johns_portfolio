@@ -24,7 +24,7 @@ Findings will be presented objectively, avoiding sensationalization or stigmatiz
 ## Disclaimer
 
 * This analysis is for informational and educational purposes only. It's not intended to provide medical advice or replace professional consultation. If you or someone you know is struggling with suicidal thoughts, please reach out to a crisis hotline or mental health professional.
-* This analysis was hosted locally and transfered into this markdown file for readability, while all code does work, syntax and names may need to be adjusted depending on how the viewer uploaded them into SQL
+* This analysis was hosted locally and transfered into this markdown file for readability, while all code does work, syntax and names may need to be adjusted depending on how the viewer uploaded them into their SQL environment
 
 
 # Ready to begin? Let's explore.
@@ -51,7 +51,7 @@ WHERE TABLE_NAME = 'Suicide_rates_raw"
 |generation|
 ---
 
-## Lets take a look at some of the more basic statisitcal breakdowns of our data
+## Lets take a look at some of the basic statisitcal breakdowns of our data
 1. A break down of the countires with the highest number of records.
 2. Average annual suicide rates by year.
 3. Average suicide rates by gender.
