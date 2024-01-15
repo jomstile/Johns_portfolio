@@ -83,7 +83,40 @@ WHERE TABLE_NAME = 'ucdp_v1'
 4. Percentage of conflict with an end date
 5. The most frequent side_a and side_b combinations
 
-
+### Number of conflicts per region
+#### For the following SQL query I assisnged a row number to each conflict with its conflict_id and region group, this ensures that we can identify the first occurrence of each combination so were not counting the same conflict twice. We then filter by row_num to only count the instances where it =1. Finally we group the results by region.
+```sql
+WITH ranked_conflicts AS (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY conflict_id, region ORDER BY start_date) AS row_num
+    FROM dbo.ucdp_v1
+)
+SELECT region, COUNT(*) AS 'Number of Conflicts'
+FROM ranked_conflicts
+WHERE row_num = 1
+GROUP BY region;
+```
+|region                                            |Number of Conflicts|
+|--------------------------------------------------|--------------------|
+|1                                                 |14                  |
+|2                                                 |14                  |
+|3                                                 |28                  |
+|4                                                 |28                  |
+|5                                                 |4                   |
+---
+### Next lets look at the most common types of conflict
+```sql
+SELECT type_of_conflict, COUNT(*) AS 'Number of conflicts'
+FROM dbo.ucdp_v1
+GROUP BY type_of_conflict
+ORDER BY num_conflicts DESC
+```
+|type_of_conflict                                  |Number of conflicts|
+|--------------------------------------------------|-------------|
+|3                                                 |433          |
+|2                                                 |230          |
+|4                                                 |88           |
+|1                                                 |31           |
 
 
 
