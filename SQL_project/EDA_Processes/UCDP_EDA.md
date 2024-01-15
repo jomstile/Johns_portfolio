@@ -95,6 +95,9 @@ GROUP BY region;
 |3                                                 |28                  |
 |4                                                 |28                  |
 |5                                                 |4                   |
+
+![Number of conflicts by region](https://github.com/jomstile/Johns_portfolio/assets/42758108/7f6a4b5c-6d04-4942-9bc3-5058b0468f14)
+
 ---
 ### Next lets look at the most common types of conflict
 ```sql
@@ -109,6 +112,9 @@ ORDER BY num_conflicts DESC
 |2                                                 |230          |
 |4                                                 |88           |
 |1                                                 |31           |
+
+![Number of conflicts by type](https://github.com/jomstile/Johns_portfolio/assets/42758108/5cf1b71d-1eb1-4aca-940a-566a0583fbb1)
+
 ---
 ### How type of conflict and intensity level corrorlate
 #### For the following SQL query I took advantage of the fact that the dataset had the dummy variable 'cumulative_intensity'. I am about to group the data by the type of conflict, and then within each group it counts the number on conflicts, the using a condition sum counts those who reach cumulative_intensity =1, the percentage is made off of these two numbers and multiplied by 100.
@@ -127,6 +133,28 @@ ORDER BY 'Percentage of conflict that reached war' DESC;
 |3 |433|312 |72.060000|
 |4 |88  |60|68.180000          |
 |1|31   |14       |45.160000  |
+
+![Percentage of war by Conflict type (1)](https://github.com/jomstile/Johns_portfolio/assets/42758108/820dda97-45d0-41cd-b0fa-f497d2b548ca)
+
+---
+### A count of how many conflicts reached war status by region
+```sql
+SELECT region, COUNT(DISTINCT conflict_id) AS num_conflicts
+FROM ucdp_v1
+WHERE cumulative_intensity = 1
+GROUP BY region
+ORDER BY num_conflicts DESC;
+```
+|region                                            |num_conflicts|
+|--------------------------------------------------|-------------|
+|3                                                 |15           |
+|4                                                 |10           |
+|1                                                 |9            |
+|2                                                 |5            |
+|5                                                 |4            |
+
+![Number of wars by region](https://github.com/jomstile/Johns_portfolio/assets/42758108/f94893c2-b2d6-4925-ad34-f67698d6bb03)
+
 ---
 ### Most frequent side_a and side_b combination
 #### For this we will need a subquery to create a table to contain only unique combinations of conflict_id, side_a, and side_b. This way we only count each conflict once.
