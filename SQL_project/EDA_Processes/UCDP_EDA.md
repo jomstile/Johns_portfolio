@@ -79,9 +79,8 @@ WHERE TABLE_NAME = 'ucdp_v1'
 ## Let's answer some of the following questions to begin our explortation:
 1. Number of conflict per region
 2. Most common type of conflict
-3. Average intensity level of conflict
-4. Percentage of conflict with an end date
-5. The most frequent side_a and side_b combinations
+3. How type of conflict and intensity level corrolate
+4. The most frequent side_a and side_b combinations
 
 ### Number of conflicts per region
 #### For the following SQL query I assisnged a row number to each conflict with its conflict_id and region group, this ensures that we can identify the first occurrence of each combination so were not counting the same conflict twice. We then filter by row_num to only count the instances where it =1. Finally we group the results by region.
@@ -117,6 +116,33 @@ ORDER BY num_conflicts DESC
 |2                                                 |230          |
 |4                                                 |88           |
 |1                                                 |31           |
-
-
+---
+### How type of conflict and intensity level corrorlate
+#### For the following SQL query I took advantage of the fact that the dataset had the dummy variable 'cumulative_intensity'. I am about to group the data by the type of conflict, and then within each group it counts the number on conflicts, the using a condition sum counts those who reach cumulative_intensity =1, the percentage is made off of these two numbers and multiplied by 100.
+```sql
+SELECT type_of_conflict,
+       COUNT(*) AS 'total conflicts',
+       SUM(CASE WHEN cumulative_intensity = 1 THEN 1 ELSE 0 END) AS 'Number classified as War',
+       ROUND(AVG(CASE WHEN cumulative_intensity = 1 THEN 1.0 ELSE 0.0 END) * 100, 2) AS 'Percentage of conflict that reached war'
+FROM dbo.ucdp_v1
+GROUP BY type_of_conflict
+ORDER BY 'Percentage of conflict that reached war' DESC;
+```
+|type_of_conflict|total conflicts|Number classified as War|Percentage of conflict that reached war|
+|------------------------------|---------------|------------------------|---------------------------------------|
+|2 |230 |186|80.870000         |
+|3 |433|312 |72.060000|
+|4 |88  |60|68.180000          |
+|1|31   |14       |45.160000  |
+---
+### Most frequent side_a and side_b combination
+```sql
+SELECT TOP 1 side_a, side_b, COUNT(*) AS 'Number of Conflicts'
+FROM ucdp_v1
+GROUP BY side_a, side_b
+ORDER BY 'Number of Conflicts'
+```
+|side_a|side_b|Number of Conflicts|
+|--|--|--|
+|Government of India|Government of Pakistan|108|
 
