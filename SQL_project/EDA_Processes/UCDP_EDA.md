@@ -31,13 +31,6 @@ This document explores the UCDP_Clean.csv dataset (Clean_data folder), dissectin
 * Visual Insights: Compelling Tableau visualizations that illuminate trends and relationships within the data.
 * Key Findings: A succinct summary of the most significant discoveries and insights from the analysis.
 
-### Delve into the Data:
-* Data Overview: Get acquainted with the dataset's structure and contents, understanding its core elements.
-* Initial Exploration: Unmask key characteristics through summary statistics and insightful visualizations, revealing the data's initial story.
-* SQL Queries: Drill down into specifics with focused SQL code, extracting targeted information and revealing hidden patterns.
-* Visual Insights: Witness powerful Tableau visualizations that bring trends and relationships to life, illuminating the data's deeper layers.
-* Key Findings and Observations: Culminate your journey with a concise summary of the most significant discoveries and insights gleaned from the analysis.
-
 ### Disclaimer:
 * Every statistic represents individuals harmed, displaced, and forever marked by conflicts. Stopping armed conflict remains an important moral obligation.
 * This analysis is for educational purposes only and not intended for academic study or decision-making. Please refer to the Uppsala Conflict Data Program for academic use.
@@ -136,13 +129,13 @@ ORDER BY 'Percentage of conflict that reached war' DESC;
 |1|31   |14       |45.160000  |
 ---
 ### Most frequent side_a and side_b combination
+#### For this we will need a subquery to create a table to contain only unique combinations of conflict_id, side_a, and side_b. This way we only count each conflict once.
 ```sql
-SELECT TOP 1 side_a, side_b, COUNT(*) AS 'Number of Conflicts'
-FROM ucdp_v1
+SELECT TOP 1 side_a, side_b, COUNT(*) AS 'Number of Unique Conflicts'
+FROM (SELECT DISTINCT conflict_id, side_a, side_b FROM UCDP_V1) AS distinct_conflicts
 GROUP BY side_a, side_b
-ORDER BY 'Number of Conflicts'
+ORDER BY 'Number of Unique Conflicts' DESC
 ```
-|side_a|side_b|Number of Conflicts|
-|--|--|--|
-|Government of India|Government of Pakistan|108|
-
+|side_a|side_b|num_conflicts|
+|---|---|---|
+|Government of Ukraine|DPR|2|
